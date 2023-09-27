@@ -21,17 +21,10 @@ jobs:
       - uses: pnpm/action-setup@v2
         with:
           version: 8.1.0
-      - name : Set env
-        run: export NOTION_API_SECRET=secret_4E9tPQhiBj74GeUgAJWItNoAxTQwioeYfRPGYGR80CR
-      - name : Set env 2
-        run: export DATABASE_ID=5b4bef8c211d4d20a5251dc5b72c7618
       - name: Checkout your repository using git
         uses: actions/checkout@v3
       - name: Install dependencies
         run: pnpm install -D node-fetch
-        env:
-          DATABASE_ID: ${{ secrets.DATABASE_ID }}
-          NOTION_API_SECRET: ${{ secrets.NOTION_API_SECRET }}
       - name: Install, build, and upload your site
         uses: withastro/action@v1
         with:
