@@ -23,8 +23,8 @@ jobs:
       - name: Install, build, and upload your site
         uses: withastro/action@v1
         env:
-          REACT_APP_APIKey: ${{ secrets.REACT_APP_APIKey }}
-          REACT_APP_APISecret: ${{ secrets.REACT_APP_APISecret }}
+          DATABASE_ID: ${{ secrets.DATABASE_ID }}
+          NOTION_API_SECRET: ${{ secrets.NOTION_API_SECRET }}
         
         # with:
           # path: . # The root location of your Astro project inside the repository. (optional)
