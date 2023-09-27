@@ -34,6 +34,9 @@ jobs:
           NOTION_API_SECRET: ${{ secrets.NOTION_API_SECRET }}
       - name: Install, build, and upload your site
         uses: withastro/action@v1
+        env:
+          DATABASE_ID: ${{ secrets.DATABASE_ID }}
+          NOTION_API_SECRET: ${{ secrets.NOTION_API_SECRET }}
         with:
           node-version: 18 # The specific version of Node that should be used to build your site. Defaults to 18. (optional)
       
