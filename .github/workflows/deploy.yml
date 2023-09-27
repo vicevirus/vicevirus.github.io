@@ -28,6 +28,8 @@ jobs:
         env:
           DATABASE_ID: ${{ secrets.DATABASE_ID }}
           NOTION_API_SECRET: ${{ secrets.NOTION_API_SECRET }}
+        run: |
+          echo "$DATABASE_ID"
       - name: Install, build, and upload your site
         uses: withastro/action@v1
         with:
