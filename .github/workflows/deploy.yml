@@ -19,6 +19,8 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      NOTION_API_SECRET: ${{ secrets.NOTION_API_SECRET }}
     steps:
       - uses: pnpm/action-setup@v2
         with:
@@ -35,6 +37,8 @@ jobs:
 
   deploy:
     needs: build
+    env:
+      NOTION_API_SECRET‎: ${{ secrets.NOTION_API_SECRET‎ }}
     runs-on: ubuntu-latest
     environment:
       name: github-pages
