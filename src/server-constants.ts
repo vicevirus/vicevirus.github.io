@@ -1,5 +1,5 @@
 export const NOTION_API_SECRET =
-  import.meta.env.NOTION_API_SECRET || process.env.NOTION_API_SECRET || 'secret_4E9tPQhiBj74GeUgAJWItNoAxTQwioeYfRPGYGR80CR'
+  import.meta.env.NOTION_API_SECRET || process.env.NOTION_API_SECRET || ''
 export const DATABASE_ID =
   import.meta.env.DATABASE_ID || process.env.DATABASE_ID || '5b4bef8c211d4d20a5251dc5b72c7618'
 
