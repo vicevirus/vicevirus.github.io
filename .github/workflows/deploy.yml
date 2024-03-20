@@ -33,6 +33,9 @@ jobs:
         uses: withastro/action@v1
         with:
           node-version: 18 # The specific version of Node that should be used to build your site. Defaults to 18. (optional)
+      - name: List files in the repository
+        run: ls -la
+
       
 
   deploy:
