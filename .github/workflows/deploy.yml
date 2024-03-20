@@ -48,10 +48,9 @@ jobs:
        
       - name: Install sitemap-generator
         run: npm install -S sitemap-generator
-        working-directory: .
-
+        working-directory: ../
 
       - name: Generate Sitemap
         run: node sitemapper.js
-        working-directory: .
+        working-directory: ../
         
