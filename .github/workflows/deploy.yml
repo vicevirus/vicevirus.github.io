@@ -49,6 +49,9 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v1
        
+      - name: List files
+        run: ls -la
+
       - name: Install sitemap-generator
         run: npm install -S sitemap-generator
 
