@@ -33,8 +33,14 @@ jobs:
         uses: withastro/action@v1
         with:
           node-version: 18 # The specific version of Node that should be used to build your site. Defaults to 18. (optional)
-      - name: List files in the repository
-        run: pwd
+      - name: List files
+        run: ls -la
+
+      - name: Install sitemap-generator
+        run: npm install -S sitemap-generator
+
+      - name: Generate Sitemap
+        run: node sitemapper.js
 
       
 
@@ -49,12 +55,5 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v1
        
-      - name: List files
-        run: ls -la
 
-      - name: Install sitemap-generator
-        run: npm install -S sitemap-generator
-
-      - name: Generate Sitemap
-        run: node /home/runner/work/vicevirus.github.io/vicevirus.github.io/sitemapper.js
         
