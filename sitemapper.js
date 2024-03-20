@@ -1,13 +1,20 @@
-const SitemapGenerator = require('sitemap-generator');
-const fs = require('fs');
-const path = require('path');
+// If `sitemap-generator` supports ESM, you can do something like this:
+import SitemapGenerator from 'sitemap-generator';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
-// create generator
+// To handle __dirname in ES module
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+// Create generator
 const generator = SitemapGenerator('https://vicevirus.github.io', {
   stripQuerystring: false
 });
 
-// register event listeners
+// Register event listeners
 generator.on('done', () => {
   // Assuming the sitemap is generated in the current directory; adjust as necessary
   const generatedSitemapPath = path.join(__dirname, 'sitemap.xml');
@@ -22,5 +29,5 @@ generator.on('done', () => {
   });
 });
 
-// start the crawler
+// Start the crawler
 generator.start();
