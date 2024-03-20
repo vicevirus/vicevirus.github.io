@@ -4,7 +4,6 @@ import CoverImageDownloader from './src/integrations/cover-image-downloader';
 import CustomIconDownloader from './src/integrations/custom-icon-downloader';
 import FeaturedImageDownloader from './src/integrations/featured-image-downloader';
 import PublicNotionCopier from './src/integrations/public-notion-copier';
-import sitemap from "@astrojs/sitemap";
 const getSite = function () {
   if (CUSTOM_DOMAIN) {
     return new URL(BASE_PATH, `https://${CUSTOM_DOMAIN}`).toString();
@@ -26,5 +25,5 @@ const getSite = function () {
 export default defineConfig({
   site: 'https://vicevirus.github.io',
   base: BASE_PATH,
-  integrations: [CoverImageDownloader(), CustomIconDownloader(), FeaturedImageDownloader(), PublicNotionCopier(), sitemap()]
+  integrations: [CoverImageDownloader(), CustomIconDownloader(), FeaturedImageDownloader(), PublicNotionCopier()]
 });
