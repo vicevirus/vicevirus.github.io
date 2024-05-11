@@ -42,6 +42,7 @@ jobs:
       - name: Install, build, and upload your site
         uses: withastro/action@v1
         with:
+          package-manager: npm
           node-version: 18 # The specific version of Node that should be used to build your site. Defaults to 18. (optional)
 
       
