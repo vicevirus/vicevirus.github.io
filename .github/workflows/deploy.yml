@@ -22,13 +22,13 @@ jobs:
     env:
       NOTION_API_SECRET: ${{ secrets.NOTION_API_SECRET }}
     steps:
-      - uses: pnpm/action-setup@v2
+      - uses: npm/action-setup@v2
         with:
           version: 8.1.0
       - name: Checkout your repository using git
         uses: actions/checkout@v3
       - name: Install dependencies
-        run: pnpm install -D node-fetch
+        run: npm install -D node-fetch
       
       - name: List files
         run: ls -la && pwd
