@@ -2,15 +2,11 @@ name: Deploy to GitHub Pages
 
 on:
   schedule:
-     - cron: '5 23 * * 0' # 08:05(Mon) JST
-  # Trigger the workflow every time you push to the `main` branch
-  # Using a different branch name? Replace `main` with your branch’s name
+    - cron: '5 23 * * 0' # 08:05(Mon) JST
   push:
     branches: [ main ]
-  # Allows you to run this workflow manually from the Actions tab on GitHub.
   workflow_dispatch:
 
-# Allow this job to clone the repo and create a page deployment
 permissions:
   contents: read
   pages: write
@@ -26,7 +22,7 @@ jobs:
         with:
           node-version: '18'
       - name: Checkout your repository using git
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Install dependencies
         run: npm install -D node-fetch
       
@@ -43,9 +39,13 @@ jobs:
         uses: withastro/action@v1
         with:
           package-manager: "npm@latest"
-          node-version: 18 # The specific version of Node that should be used to build your site. Defaults to 18. (optional)
+          node-version: 18
 
-      
+      # Upload artifact for deployment
+      - name: Upload artifact for GitHub Pages
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist # Change this if your build output directory is different
 
   deploy:
     needs: build
@@ -56,7 +56,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
-       
-
-        
+        uses: actions/deploy-pages@v4
