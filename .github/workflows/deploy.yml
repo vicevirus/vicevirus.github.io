@@ -22,30 +22,24 @@ jobs:
         with:
           node-version: '18'
       - name: Checkout your repository using git
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
       - name: Install dependencies
         run: npm install -D node-fetch
-      
       - name: List files
         run: ls -la && pwd
-
       - name: Install sitemap-generator
         run: npm install -S sitemap-generator
-
       - name: Generate Sitemap
         run: node sitemapper.js
-        
       - name: Install, build, and upload your site
         uses: withastro/action@v1
         with:
           package-manager: "npm@latest"
           node-version: 18
-
-      # Upload artifact for deployment
       - name: Upload artifact for GitHub Pages
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: dist # Change this if your build output directory is different
+          path: dist # Adjust this if your build output directory is different
 
   deploy:
     needs: build
