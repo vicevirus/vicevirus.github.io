@@ -32,7 +32,7 @@ jobs:
       - name: Generate Sitemap
         run: node sitemapper.js
       - name: Install, build, and upload your site
-        uses: withastro/action@v1
+        uses: withastro/action@v4
         with:
           package-manager: "npm@latest"
           node-version: 18
